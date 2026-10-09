@@ -1,11 +1,11 @@
 const EVENT={
   title:'Cumpleaños de Lucas (18)',
-  start:'2026-10-17T21:00:00-03:00',
+  start:'2028-10-17T21:00:00-03:00',
   hours:4,
-  place:'Salón Voilé Eventos',
-  address:'Avenida Remigio López 5073, José C. Paz',
-  mapQuery:'Salón Voilé Eventos, Avenida Remigio López 5073, José C. Paz, Buenos Aires, Argentina',
-  alias:'18SORPRESA.LUCAS'
+  place:'Salon ejemplo',
+  address:'Mariana, Humacao 00791, Puerto Rico',
+  mapQuery:'Mariana, Humacao 00791, Puerto Rico',
+  alias:'ALIAS.EJEMPLO'
 };
 const $=id=>document.getElementById(id),q=encodeURIComponent(EVENT.mapQuery);$('gmaps').href=`https://www.google.com/maps/search/?api=1&query=${q}`;
 $('uber').href = `https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=${q}`;
