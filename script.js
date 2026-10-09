@@ -7,7 +7,7 @@ const EVENT={
   mapQuery:'Mariana, Humacao 00791, Puerto Rico',
   alias:'ALIAS.EJEMPLO'
 };
-const $=id=>document.getElementById(id),q=encodeURIComponent(EVENT.mapQuery);$('gmaps').href=`https://www.google.com/maps/search/?api=1&query=${q}`;
+const $=id=>document.getElementById(id),q=encodeURIComponent(EVENT.mapQuery);$('gmaps').href=`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d383.482324466098!2d-65.83373912000896!3d18.138582136628035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c04a80cd8476477%3A0x9aa518a4961549dc!2sC.%20el%20Ejemplo%2C%20Mariana%2C%20Humacao%2000791%2C%20Puerto%20Rico!5e0!3m2!1ses-419!2sar!4v1791564641969!5m2!1ses-419!2sar";
 $('uber').href = `https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=${q}`;
 $('mapframe').src=`https://www.google.com/maps?q=${q}&output=embed`;
 
