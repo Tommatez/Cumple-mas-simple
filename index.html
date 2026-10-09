@@ -27,8 +27,9 @@
 
   <div class="when">
     <p class="day disp" id="day">Sábado 17 de octubre, 21:00 hs</p>
-    <p class="place" id="place">Salon ejemplo de lugar</p>
-    <p class="addr" id="addr">Ejemplo de direccion</p>
+    <p class="place" id="place">Salón Ejemplo</p>
+    <!-- Dirección actualizada en el HTML -->
+    <p class="addr" id="addr">Calle Ejemplo 123, Ciudad Ficticia</p>
     <div class="btns">
       <a class="btn main wide" id="gmaps" target="_blank" rel="noopener">Cómo llegar con Google Maps</a>
       <a class="btn" id="uber" target="_blank" rel="noopener">Abrir en Uber</a>
@@ -67,49 +68,52 @@
   <footer class="foot">
     <p>Lucas, 2026</p>
     <p>Va a ser una noche magica, unica, y muy especial. Gracias por acompañarme.</p>
-
   </footer>
 
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="script.js" type="module">
+<!-- Enlace al archivo JavaScript -->
+<script src="script.js" type="module"></script>
+
+<!-- Script para el fondo de destellos -->
+<script>
   const canvas = document.getElementById('sparkles');
-const ctx = canvas.getContext('2d');
-
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
-
-const particles = Array.from({ length: 35 }, () => ({
-  x: Math.random() * width,
-  y: Math.random() * height,
-  size: Math.random() * 2 + 0.5,
-  alpha: Math.random(),
-  speed: Math.random() * 0.02 + 0.005,
-  dir: Math.random() > 0.5 ? 1 : -1
-}));
-
-function draw() {
-  ctx.clearRect(0, 0, width, height);
-  particles.forEach(p => {
-    p.alpha += p.speed * p.dir;
-    if (p.alpha >= 1 || p.alpha <= 0) p.dir *= -1;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(242, 220, 154, ${Math.max(0, p.alpha)})`;
-    ctx.shadowBlur = 6;
-    ctx.shadowColor = '#D9B65F';
-    ctx.fill();
+  const ctx = canvas.getContext('2d');
+  
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+  
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   });
-  requestAnimationFrame(draw);
-}
-draw();
+  
+  const particles = Array.from({ length: 35 }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    size: Math.random() * 2 + 0.5,
+    alpha: Math.random(),
+    speed: Math.random() * 0.02 + 0.005,
+    dir: Math.random() > 0.5 ? 1 : -1
+  }));
+  
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.alpha += p.speed * p.dir;
+      if (p.alpha >= 1 || p.alpha <= 0) p.dir *= -1;
+  
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(242, 220, 154, ${Math.max(0, p.alpha)})`;
+      ctx.shadowBlur = 6;
+      ctx.shadowColor = '#D9B65F';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
 </script>
 </body>
 </html>
